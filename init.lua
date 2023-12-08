@@ -234,7 +234,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'onelight',
         component_separators = '|',
         section_separators = '',
       },

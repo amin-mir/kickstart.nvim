@@ -6,3 +6,17 @@ vim.keymap.set('n', '<leader>fb', '<Cmd>Neotree source=buffers position=float to
 
 -- Git
 vim.keymap.set('n', '<leader>gb', '<Cmd>:GBrows<CR>', { desc = 'Brows to the current file on the git platform' })
+
+-- Golang Test Verbose Mode
+function ToggleGoTestVerbose()
+  if vim.g['test#go#gotest#options'] == '-v' then
+    vim.g['test#go#gotest#options'] = ''
+    print("Verbose mode off for Go tests")
+  else
+    vim.g['test#go#gotest#options'] = '-v'
+    print("Verbose mode on for Go tests")
+  end
+end
+
+vim.api.nvim_set_keymap('n', '<leader>cgv', ':lua ToggleGoTestVerbose()<CR>',
+  { noremap = true, silent = true, desc = 'Toggle [G]o Tests [V]erbose Mode' })

@@ -20,3 +20,7 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>cgv', ':lua ToggleGoTestVerbose()<CR>',
   { noremap = true, silent = true, desc = 'Toggle [G]o Tests [V]erbose Mode' })
+
+-- Copilot
+vim.api.nvim_set_keymap('i', '<C-l>', 'copilot#Accept("<CR>")',
+  { noremap = true, silent = true, expr = true, desc = 'Accept copilot suggestion' })

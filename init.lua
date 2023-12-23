@@ -189,45 +189,6 @@ require('lazy').setup({
     },
   },
 
-  -- {
-  --   -- Theme inspired by Atom
-  --   'navarasu/onedark.nvim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'onedark'
-  --   end,
-  -- },
-
-  -- {
-  --   'projekt0n/github-nvim-theme',
-  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  --   config = function()
-  --     require('github-theme').setup()
-  --
-  --     vim.cmd('colorscheme github_light_default')
-  --   end,
-  -- },
-
-  -- {
-  --   'catppuccin/nvim',
-  --   lazy = false,
-  --   config = function()
-  --     -- require('github-theme').setup()
-  --
-  --     vim.cmd('colorscheme catppuccin-latte')
-  --   end,
-  -- },
-
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd('colorscheme tokyonight-day')
-    end,
-    opts = {},
-  },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',

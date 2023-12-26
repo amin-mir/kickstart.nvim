@@ -21,7 +21,7 @@ vim.api.nvim_set_keymap('n', '<leader>cgv', ':lua ToggleGoTestVerbose()<CR>',
   { noremap = true, silent = true, desc = 'Toggle [G]o Tests [V]erbose Mode' })
 
 -- Copilot
-vim.api.nvim_set_keymap('i', '<C-n>', 'copilot#Accept("<CR>")',
+vim.api.nvim_set_keymap('i', '<C-l>', 'copilot#Accept("<CR>")',
   { noremap = true, silent = true, expr = true, desc = 'Accept copilot suggestion' })
 
 -- Swtich between buffers
@@ -29,3 +29,13 @@ vim.api.nvim_set_keymap('i', '<C-n>', 'copilot#Accept("<CR>")',
 -- vim.keymap.set('n', '<M-k>', '<C-w>k', { noremap = true, silent = true, desc = 'Switch to top buffer' })
 -- vim.keymap.set('n', '<M-j>', '<C-w>j', { noremap = true, silent = true, desc = 'Switch to bottom buffer' })
 -- vim.keymap.set('n', '<M-l>', '<C-w>l', { noremap = true, silent = true, desc = 'Switch to right buffer' })
+vim.g.tmux_navigator_no_mappings = 1
+
+vim.keymap.set('n', '<M-h>', ":TmuxNavigateLeft<cr>",
+  { noremap = true, silent = true, desc = 'Switch to left buffer' })
+vim.keymap.set('n', '<M-k>', ":TmuxNavigateUp<cr>",
+  { noremap = true, silent = true, desc = 'Switch to top buffer' })
+vim.keymap.set('n', '<M-j>', ":TmuxNavigateDown<cr>",
+  { noremap = true, silent = true, desc = 'Switch to bottom buffer' })
+vim.keymap.set('n', '<M-l>', ":TmuxNavigateRight<cr>",
+  { noremap = true, silent = true, desc = 'Switch to right buffer' })

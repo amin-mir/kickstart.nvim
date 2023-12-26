@@ -11,7 +11,7 @@ return {
     local ui = require("harpoon.ui")
 
     vim.keymap.set("n", "<leader>ha", mark.toggle_file, { desc = 'Toggle mark file for harpoon' })
-    vim.keymap.set("n", "<C-b>", ui.toggle_quick_menu, { desc = 'Show marked files for harpoon' })
+    vim.keymap.set("n", "<C-h>", ui.toggle_quick_menu, { desc = 'Show marked files for harpoon' })
 
     vim.keymap.set("n", "<leader>h1", function() ui.nav_file(1) end, { desc = 'Harpoon file #1' })
     vim.keymap.set("n", "<leader>h2", function() ui.nav_file(2) end, { desc = 'Harpoon file #2' })

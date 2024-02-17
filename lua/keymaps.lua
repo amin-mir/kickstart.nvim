@@ -39,3 +39,18 @@ vim.keymap.set('n', '<M-j>', ":TmuxNavigateDown<cr>",
   { noremap = true, silent = true, desc = 'Switch to bottom buffer' })
 vim.keymap.set('n', '<M-l>', ":TmuxNavigateRight<cr>",
   { noremap = true, silent = true, desc = 'Switch to right buffer' })
+
+-- Define the DiagnosticToggle command
+vim.api.nvim_create_user_command("DiagnosticToggle", function()
+  local config = vim.diagnostic.config
+  local current_config = config()
+  config {
+    virtual_text = not current_config.virtual_text,
+    underline = not current_config.virtual_text,
+    signs = not current_config.virtual_text,
+  }
+end, { desc = "Toggle Diagnostics" })
+
+-- Create a keymap for the DiagnosticToggle command
+vim.api.nvim_set_keymap('n', '<leader>cd', '<cmd>DiagnosticToggle<CR>',
+  { noremap = true, silent = true, desc = "Toggle Diagnostics" })

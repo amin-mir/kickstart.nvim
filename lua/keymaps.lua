@@ -24,7 +24,7 @@ vim.api.nvim_set_keymap('n', '<leader>cgv', ':lua ToggleGoTestVerbose()<CR>',
 vim.api.nvim_set_keymap('i', '<C-l>', 'copilot#Accept("<CR>")',
   { noremap = true, silent = true, expr = true, desc = 'Accept copilot suggestion' })
 
--- Swtich between buffers
+-- Switch between buffers
 -- vim.keymap.set('n', '<M-h>', '<C-w>h', { noremap = true, silent = true, desc = 'Switch to left buffer' })
 -- vim.keymap.set('n', '<M-k>', '<C-w>k', { noremap = true, silent = true, desc = 'Switch to top buffer' })
 -- vim.keymap.set('n', '<M-j>', '<C-w>j', { noremap = true, silent = true, desc = 'Switch to bottom buffer' })

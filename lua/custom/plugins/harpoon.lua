@@ -9,7 +9,7 @@ return {
     harpoon:setup()
 
     vim.keymap.set('n', '<leader>ha', function()
-      harpoon:list():append()
+      harpoon:list():add()
     end, { desc = 'Harpoon toggle mark file' })
 
     vim.keymap.set('n', '<leader>hh', function()

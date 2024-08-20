@@ -349,30 +349,36 @@ require('lazy').setup({
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').add {
-        ['<leader>c'] = {
-          name = '[C]ode',
-          _ = 'which_key_ignore',
-          g = {
-            name = '[G]o Specific Actions',
-            -- v = { ":lua ToggleGoTestVerbose()<CR>", "Toggle Go Tests Verbose Mode" }
-          },
-        },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = '[F]ile Tree', _ = 'which_key_ignore' },
-        ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-      }
+      -- which-key is somehow able to fiture out the mappings.
+      -- require('which-key').add {
+      -- ['<leader>c'] = {
+      --   name = '[C]ode',
+      --   _ = 'which_key_ignore',
+      --   g = {
+      --     name = '[G]o Specific Actions',
+      --     -- v = { ":lua ToggleGoTestVerbose()<CR>", "Toggle Go Tests Verbose Mode" }
+      --   },
+      -- },
+      -- {
+      --   '<leader>c',
+      --   group = '[C]ode',
+      --   -- { 'g', group = '[G]o Specific Actions' },
+      -- },
+      -- ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+      -- ['<leader>f'] = { name = '[F]ile Tree', _ = 'which_key_ignore' },
+      -- ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+      -- ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+      -- ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+      -- ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+      -- ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+      -- ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+      -- }
       -- register which-key VISUAL mode
       -- required for visual <leader>hs (hunk stage) to work
-      require('which-key').add({
-        ['<leader>'] = { name = 'VISUAL <leader>' },
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
+      -- require('which-key').add({
+      --   ['<leader>'] = { name = 'VISUAL <leader>' },
+      --   ['<leader>h'] = { 'Git [H]unk' },
+      -- }, { mode = 'v' })
     end,
   },
 
@@ -605,13 +611,16 @@ require('lazy').setup({
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
+              group = highlight_augroup,
               callback = vim.lsp.buf.document_highlight,
             })
 
             vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
               buffer = event.buf,
+              group = highlight_augroup,
               callback = vim.lsp.buf.clear_references,
             })
 

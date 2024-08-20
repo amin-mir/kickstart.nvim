@@ -345,7 +345,7 @@ require('lazy').setup({
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').register {
+      require('which-key').add {
         ['<leader>c'] = {
           name = '[C]ode',
           _ = 'which_key_ignore',
@@ -365,7 +365,7 @@ require('lazy').setup({
       }
       -- register which-key VISUAL mode
       -- required for visual <leader>hs (hunk stage) to work
-      require('which-key').register({
+      require('which-key').add({
         ['<leader>'] = { name = 'VISUAL <leader>' },
         ['<leader>h'] = { 'Git [H]unk' },
       }, { mode = 'v' })

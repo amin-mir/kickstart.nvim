@@ -19,7 +19,12 @@ end
 vim.api.nvim_set_keymap('n', '<leader>cgv', ':lua ToggleGoTestVerbose()<CR>', { noremap = true, silent = true, desc = 'Toggle [G]o Tests [V]erbose Mode' })
 
 -- Copilot
-vim.api.nvim_set_keymap('i', '<C-l>', 'copilot#Accept("<CR>")', { noremap = true, silent = true, expr = true, desc = 'Accept copilot suggestion' })
+-- vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+--   expr = true,
+--   replace_keycodes = false,
+-- })
+-- set this one in the copilot.lua file
+-- vim.g.copilot_no_tab_map = true
 
 -- Switch between buffers
 -- vim.keymap.set('n', '<M-h>', '<C-w>h', { noremap = true, silent = true, desc = 'Switch to left buffer' })

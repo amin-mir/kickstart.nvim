@@ -8,7 +8,7 @@ return {
     priority = 1000,
     dependencies = { 'rktjmp/lush.nvim' },
     init = function()
-      vim.cmd.colorscheme 'neobones'
+      vim.cmd.colorscheme 'kanagawabones'
       -- vim.cmd.colorscheme 'tokyonight-night'
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'

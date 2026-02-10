@@ -1,3 +1,5 @@
-**My fork of kickstart.nvim**
+# My fork of kickstart.nvim
 
-Up to date until: 1860184
+Up to date until:
+
+- fix: continue cleaning up docs and config e79572c
